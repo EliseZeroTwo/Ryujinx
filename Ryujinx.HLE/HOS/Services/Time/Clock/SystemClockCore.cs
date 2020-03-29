@@ -58,8 +58,6 @@ namespace Ryujinx.HLE.HOS.Services.Time.Clock
                 SteadyTimePoint = currentTimePoint
             };
 
-            Ryujinx.Common.Logging.Logger.PrintError(Common.Logging.LogClass.ServiceTime, $"UwU Time offset: {Configuration.ConfigurationState.Instance.System.DateTimeTicksOffset.Value}");
-
             ResultCode result = SetClockContext(clockContext);
 
             if (result == ResultCode.Success)
