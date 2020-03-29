@@ -89,6 +89,11 @@ namespace Ryujinx.Configuration
         public string SystemTimeZone { get; set; }
 
         /// <summary>
+        /// Offset to add to system time
+        /// </summary>
+        public int SystemDateTimeTicksOffset { get; set; }
+
+        /// <summary>
         /// Enables or disables Docked Mode
         /// </summary>
         public bool DockedMode { get; set; }

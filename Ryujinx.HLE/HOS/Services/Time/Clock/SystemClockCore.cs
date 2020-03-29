@@ -54,9 +54,11 @@ namespace Ryujinx.HLE.HOS.Services.Time.Clock
 
             SystemClockContext clockContext = new SystemClockContext()
             {
-                Offset          = posixTime - currentTimePoint.TimePoint,
+                Offset          = posixTime - currentTimePoint.TimePoint + Configuration.ConfigurationState.Instance.System.DateTimeTicksOffset,
                 SteadyTimePoint = currentTimePoint
             };
+
+            Ryujinx.Common.Logging.Logger.PrintError(Common.Logging.LogClass.ServiceTime, $"UwU Time offset: {Configuration.ConfigurationState.Instance.System.DateTimeTicksOffset.Value}");
 
             ResultCode result = SetClockContext(clockContext);
 

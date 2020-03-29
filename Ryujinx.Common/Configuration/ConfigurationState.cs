@@ -159,6 +159,11 @@ namespace Ryujinx.Configuration
             public ReactiveObject<string> TimeZone { get; private set; }
 
             /// <summary>
+            /// Offset to add to system time
+            /// </summary>
+            public ReactiveObject<int> DateTimeTicksOffset { get; private set; }
+
+            /// <summary>
             /// Enables or disables Docked Mode
             /// </summary>
             public ReactiveObject<bool> EnableDockedMode { get; private set; }
@@ -188,6 +193,7 @@ namespace Ryujinx.Configuration
                 Language                  = new ReactiveObject<Language>();
                 Region                    = new ReactiveObject<Region>();
                 TimeZone                  = new ReactiveObject<string>();
+                DateTimeTicksOffset       = new ReactiveObject<int>();
                 EnableDockedMode          = new ReactiveObject<bool>();
                 EnableMulticoreScheduling = new ReactiveObject<bool>();
                 EnableFsIntegrityChecks   = new ReactiveObject<bool>();
@@ -315,6 +321,7 @@ namespace Ryujinx.Configuration
                 SystemLanguage            = System.Language,
                 SystemRegion              = System.Region,
                 SystemTimeZone            = System.TimeZone,
+                SystemDateTimeTicksOffset = System.DateTimeTicksOffset,
                 DockedMode                = System.EnableDockedMode,
                 EnableDiscordIntegration  = EnableDiscordIntegration,
                 EnableVsync               = Graphics.EnableVsync,
@@ -362,6 +369,7 @@ namespace Ryujinx.Configuration
             System.Language.Value                  = Language.AmericanEnglish;
             System.Region.Value                    = Region.USA;
             System.TimeZone.Value                  = "UTC";
+            System.DateTimeTicksOffset.Value       = 0;
             System.EnableDockedMode.Value          = false;
             EnableDiscordIntegration.Value         = true;
             Graphics.EnableVsync.Value             = true;
@@ -500,6 +508,7 @@ namespace Ryujinx.Configuration
             System.Language.Value                  = configurationFileFormat.SystemLanguage;
             System.Region.Value                    = configurationFileFormat.SystemRegion;
             System.TimeZone.Value                  = configurationFileFormat.SystemTimeZone;
+            System.DateTimeTicksOffset.Value       = configurationFileFormat.SystemDateTimeTicksOffset;
             System.EnableDockedMode.Value          = configurationFileFormat.DockedMode;
             System.EnableDockedMode.Value          = configurationFileFormat.DockedMode;
             EnableDiscordIntegration.Value         = configurationFileFormat.EnableDiscordIntegration;
